@@ -1,1 +1,9 @@
 c:\users\gustavo\documents\visual studio 2012\Projects\GeneradorAleatorio\GeneradorAleatorio\bin\Debug\GeneradorAleatorio.exe.config
+c:\users\gustavo\documents\visual studio 2012\Projects\GeneradorAleatorio\GeneradorAleatorio\obj\Debug\GeneradorAleatorio.csprojResolveAssemblyReference.cache
+c:\users\gustavo\documents\visual studio 2012\Projects\GeneradorAleatorio\GeneradorAleatorio\obj\Debug\GeneradorAleatorio.Form1.resources
+c:\users\gustavo\documents\visual studio 2012\Projects\GeneradorAleatorio\GeneradorAleatorio\obj\Debug\GeneradorAleatorio.Properties.Resources.resources
+c:\users\gustavo\documents\visual studio 2012\Projects\GeneradorAleatorio\GeneradorAleatorio\obj\Debug\GeneradorAleatorio.csproj.GenerateResource.Cache
+C:\Users\Gustavo\documents\visual studio 2012\Projects\GeneradorAleatorio\GeneradorAleatorio\bin\Debug\GeneradorAleatorio.exe
+C:\Users\Gustavo\documents\visual studio 2012\Projects\GeneradorAleatorio\GeneradorAleatorio\bin\Debug\GeneradorAleatorio.pdb
+C:\Users\Gustavo\documents\visual studio 2012\Projects\GeneradorAleatorio\GeneradorAleatorio\obj\Debug\GeneradorAleatorio.exe
+C:\Users\Gustavo\documents\visual studio 2012\Projects\GeneradorAleatorio\GeneradorAleatorio\obj\Debug\GeneradorAleatorio.pdb
