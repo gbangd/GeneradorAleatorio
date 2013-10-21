@@ -56,6 +56,63 @@ namespace GeneradorAleatorio
             return matrizDeDatos;
         }
 
+        public virtual List<List<double>> chi_cuadrado()
+        {
+            List<List<double>> matrizDeDatos = new List<List<double>>();
+            List<double> listaO = new List<double>();
+            List<double> listaFi = new List<double>();
+            List<double> listaEi = new List<double>();
+            List<double> listaLimite = new List<double>();
 
+            int n = this.numerosDeCeroAUno.Count; 
+            int m =(int)Math.Sqrt(n);
+            double Ei = n / m;
+
+            for (int i = 0; i < m; i++)
+            {
+                double inicio = (Convert.ToDouble(i) / Convert.ToDouble(m));
+                double fin = (Convert.ToDouble(i+1)) / Convert.ToDouble(m);
+                listaLimite.Add(fin);
+                listaO.Add(cuantasEnElIntervalo(inicio,fin));
+                listaEi.Add(Ei);
+                listaFi.Add(Math.Round((Math.Pow((listaO[i]-Ei),2)/Ei),3));
+            }
+
+            matrizDeDatos.Add(listaLimite);
+            matrizDeDatos.Add(listaO);
+            matrizDeDatos.Add(listaEi);
+            matrizDeDatos.Add(listaFi);
+
+            return matrizDeDatos;
+        }
+
+        public virtual double promedio() 
+        {
+            double promedio = Math.Round(numerosDeCeroAUno.Average(),3);
+            const double puntoCinco = (double)(0.5);
+            double raizInferior = Math.Sqrt(0.083);
+            double raizSuperior = Math.Sqrt(numerosDeCeroAUno.Count);
+            return ((promedio-puntoCinco)*Math.Round(raizSuperior,3))/Math.Round(raizInferior,3);
+        }
+
+        private int cuantasEnElIntervalo(double inicio, double fin) 
+        {
+            int counter = 0;
+            foreach (double i in numerosDeCeroAUno)
+            {
+                if (fin != 1)
+                {
+                    if (inicio <= i && i < fin)
+                        counter++;
+                }
+                else 
+                {
+                    if (inicio <= i && i <= fin)
+                        counter++;
+                }
+
+            }
+            return counter;
+        }
     }
 }

@@ -74,24 +74,31 @@ namespace GeneradorAleatorio
             switch (comboBox1.SelectedIndex)
             {
                 case 0:
-                    this.llenarTabla(generadorCongruencial.kolmogorov_smirnov(), dataGridView3);
+                    var datos =generadorCongruencial.kolmogorov_smirnov();
+                    double dMaximo = datos[2].Max();
+                    double dMinimo = datos[3].Min();
+
+                    this.llenarTabla(datos, dataGridView3);
                     dataGridView3.Columns[0].HeaderCell.Value = "F(Xi)";
                     dataGridView3.Columns[1].HeaderCell.Value = "i/n";
                     dataGridView3.Columns[2].HeaderCell.Value = "i/n - F(Xi)";
                     dataGridView3.Columns[3].HeaderCell.Value = "F(Xi) - (i-1)/n";
-                    label7.Text = "KOLMOGOROV-SMIRNOV";
+                    label7.Text = "KOLMOGOROV-SMIRNOV (DMAX: "+dMaximo+"; DMIN: "+dMinimo+" <--> MAXIMO: "+Math.Max(dMaximo, dMinimo)+")";;
                     dataGridView3.Focus();
                     break;
                 case 1:
-
+                    label7.Text = "PROMEDIOS\n\nZ: " + generadorCongruencial.promedio() + "\n\n\n";
                     break;
                 case 2:
-                    this.llenarTabla(generadorCongruencial.kolmogorov_smirnov(), dataGridView3);
-                    dataGridView3.Columns[0].HeaderCell.Value = "F(Xi)";
-                    dataGridView3.Columns[1].HeaderCell.Value = "i/n";
-                    dataGridView3.Columns[2].HeaderCell.Value = "i/n - F(Xi)";
-                    dataGridView3.Columns[3].HeaderCell.Value = "F(Xi) - (i-1)/n";
-                    label7.Text = "CHI-CUADRADA";
+                    var datos2 = generadorCongruencial.chi_cuadrado();
+                    double sumatoria = datos2[3].Sum();
+                    this.llenarTabla(datos2, dataGridView3);
+                    dataGridView3.Columns[0].HeaderCell.Value = "Intervalo";
+                    dataGridView3.Columns[1].HeaderCell.Value = "Oi";
+                    dataGridView3.Columns[2].HeaderCell.Value = "Ei";
+                    dataGridView3.Columns[3].HeaderCell.Value = "(Oi-Ei)²/Ei";
+                    label7.Text = "CHI-CUADRADA (SUMATORIA de (Oi-Ei)²/Ei: "+sumatoria+")";
+                    dataGridView3.Focus();
                     break;
             }
         }
@@ -101,24 +108,31 @@ namespace GeneradorAleatorio
             switch (comboBox2.SelectedIndex)
             {
                 case 0:
-                    this.llenarTabla(generadorCuadrados.kolmogorov_smirnov(), dataGridView4);
+                    var datos =generadorCuadrados.kolmogorov_smirnov();
+                    double dMaximo = datos[2].Max();
+                    double dMinimo = datos[3].Min();
+                    
+                    this.llenarTabla(datos, dataGridView4);
                     dataGridView4.Columns[0].HeaderCell.Value = "F(Xi)";
                     dataGridView4.Columns[1].HeaderCell.Value = "i/n";
                     dataGridView4.Columns[2].HeaderCell.Value = "i/n - F(Xi)";
                     dataGridView4.Columns[3].HeaderCell.Value = "F(Xi) - (i-1)/n";
-                    label7.Text = "KOLMOGOROV-SMIRNOV";
+                    label11.Text = "KOLMOGOROV-SMIRNOV (DMAX: "+dMaximo+"; DMIN: "+dMinimo+"  <-->  MAXIMO: "+Math.Max(dMaximo, dMinimo)+")";;
                     dataGridView4.Focus();
                     break;
                 case 1:
-
+                    label11.Text = "PROMEDIOS\n\nZ: " + generadorCuadrados.promedio() + "\n\n\n";
                     break;
                 case 2:
-                    this.llenarTabla(generadorCuadrados.kolmogorov_smirnov(), dataGridView3);
-                    dataGridView3.Columns[0].HeaderCell.Value = "F(Xi)";
-                    dataGridView3.Columns[1].HeaderCell.Value = "i/n";
-                    dataGridView3.Columns[2].HeaderCell.Value = "i/n - F(Xi)";
-                    dataGridView3.Columns[3].HeaderCell.Value = "F(Xi) - (i-1)/n";
-                    label7.Text = "CHI-CUADRADA";
+                    var datos2 = generadorCuadrados.chi_cuadrado();
+                    double sumatoria = datos2[3].Sum();
+                    this.llenarTabla(datos2, dataGridView4);
+                    dataGridView4.Columns[0].HeaderCell.Value = "Intervalo";
+                    dataGridView4.Columns[1].HeaderCell.Value = "Oi";
+                    dataGridView4.Columns[2].HeaderCell.Value = "Ei";
+                    dataGridView4.Columns[3].HeaderCell.Value = "(Oi-Ei)²/Ei";
+                    label11.Text = "CHI-CUADRADA (SUMATORIA de (Oi-Ei)²/Ei: " + sumatoria + ")";
+                    dataGridView4.Focus();
                     break;
             }
         }

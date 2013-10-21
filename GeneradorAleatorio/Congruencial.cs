@@ -11,6 +11,9 @@ namespace GeneradorAleatorio
 
         public void generar(int a, int c, int m, double semilla, int cantidadDeNumeros)
         {
+            this.numerosDelGenerador.Clear();
+            this.numerosDeCeroAUno.Clear();
+
             int i =0;
             while(i < cantidadDeNumeros)
             {

@@ -11,6 +11,9 @@ namespace GeneradorAleatorio
 
         public void generar(double semilla, int cantidadDeNumeros) 
         {
+            this.numerosDelGenerador.Clear();
+            this.numerosDeCeroAUno.Clear();
+
             while (cantidadDeNumeros > 0)
             {
                 double alCuadrado = Math.Pow(semilla, 2);
@@ -18,7 +21,7 @@ namespace GeneradorAleatorio
                 if (cadenaCuadrado.Length % 2 != 0)
                     cadenaCuadrado = "0" + cadenaCuadrado;
                 if (cadenaCuadrado.Length > 4)
-                    semilla = double.Parse(cadenaCuadrado.Substring((cadenaCuadrado.Length / 2) - 1, 4));
+                    semilla = double.Parse(cadenaCuadrado.Substring((cadenaCuadrado.Length / 2) - 2, 4));
                 else
                     semilla = double.Parse(cadenaCuadrado);
                 this.numerosDelGenerador.Add(semilla);
