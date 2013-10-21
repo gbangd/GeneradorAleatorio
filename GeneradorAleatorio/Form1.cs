@@ -20,6 +20,8 @@ namespace GeneradorAleatorio
             InitializeComponent();
             generadorCongruencial = new Congruencial();
             generadorCuadrados = new Cuadrados();
+
+            //comboBox1.SelectedIndex = 0;
         }
 
         #region Eventos
@@ -36,6 +38,9 @@ namespace GeneradorAleatorio
             this.llenarTabla(tablaDeDatos, dataGridView1);
             dataGridView1.Columns[0].HeaderCell.Value = "Numeros del Generador";
             dataGridView1.Columns[1].HeaderCell.Value = "Numeros de Cero a Uno";
+
+            button3.Enabled = true;
+            comboBox1.Enabled = true;
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -49,6 +54,73 @@ namespace GeneradorAleatorio
             this.llenarTabla(tablaDeDatos,dataGridView2);
             dataGridView2.Columns[0].HeaderCell.Value = "Numeros del Generador";
             dataGridView2.Columns[1].HeaderCell.Value = "Numeros de Cero a Uno";
+
+            button4.Enabled = true;
+            comboBox2.Enabled = true;
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start(Application.StartupPath + "/numeros_aleatorios.csv");
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start(Application.StartupPath + "/numeros_aleatorios.csv");
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            switch (comboBox1.SelectedIndex)
+            {
+                case 0:
+                    this.llenarTabla(generadorCongruencial.kolmogorov_smirnov(), dataGridView3);
+                    dataGridView3.Columns[0].HeaderCell.Value = "F(Xi)";
+                    dataGridView3.Columns[1].HeaderCell.Value = "i/n";
+                    dataGridView3.Columns[2].HeaderCell.Value = "i/n - F(Xi)";
+                    dataGridView3.Columns[3].HeaderCell.Value = "F(Xi) - (i-1)/n";
+                    label7.Text = "KOLMOGOROV-SMIRNOV";
+                    dataGridView3.Focus();
+                    break;
+                case 1:
+
+                    break;
+                case 2:
+                    this.llenarTabla(generadorCongruencial.kolmogorov_smirnov(), dataGridView3);
+                    dataGridView3.Columns[0].HeaderCell.Value = "F(Xi)";
+                    dataGridView3.Columns[1].HeaderCell.Value = "i/n";
+                    dataGridView3.Columns[2].HeaderCell.Value = "i/n - F(Xi)";
+                    dataGridView3.Columns[3].HeaderCell.Value = "F(Xi) - (i-1)/n";
+                    label7.Text = "CHI-CUADRADA";
+                    break;
+            }
+        }
+
+        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            switch (comboBox2.SelectedIndex)
+            {
+                case 0:
+                    this.llenarTabla(generadorCuadrados.kolmogorov_smirnov(), dataGridView4);
+                    dataGridView4.Columns[0].HeaderCell.Value = "F(Xi)";
+                    dataGridView4.Columns[1].HeaderCell.Value = "i/n";
+                    dataGridView4.Columns[2].HeaderCell.Value = "i/n - F(Xi)";
+                    dataGridView4.Columns[3].HeaderCell.Value = "F(Xi) - (i-1)/n";
+                    label7.Text = "KOLMOGOROV-SMIRNOV";
+                    dataGridView4.Focus();
+                    break;
+                case 1:
+
+                    break;
+                case 2:
+                    this.llenarTabla(generadorCuadrados.kolmogorov_smirnov(), dataGridView3);
+                    dataGridView3.Columns[0].HeaderCell.Value = "F(Xi)";
+                    dataGridView3.Columns[1].HeaderCell.Value = "i/n";
+                    dataGridView3.Columns[2].HeaderCell.Value = "i/n - F(Xi)";
+                    dataGridView3.Columns[3].HeaderCell.Value = "F(Xi) - (i-1)/n";
+                    label7.Text = "CHI-CUADRADA";
+                    break;
+            }
         }
         #endregion
 
@@ -70,6 +142,7 @@ namespace GeneradorAleatorio
             }
         }
         #endregion
+     
     }
 }
 

@@ -25,6 +25,7 @@ namespace GeneradorAleatorio
                 this.numerosDeCeroAUno.Add(semilla / 10000);
                 cantidadDeNumeros--;
             }
+            this.guardarEnArchivo();
         }
 
         #region Getter Setter

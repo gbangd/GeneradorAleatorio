@@ -11,14 +11,15 @@ namespace GeneradorAleatorio
 
         public void generar(int a, int c, int m, double semilla, int cantidadDeNumeros)
         {
-           int i =0;
+            int i =0;
             while(i < cantidadDeNumeros)
             {
                 semilla = ((a*semilla)+c)%m;
                 this.numerosDelGenerador.Add(semilla);
                 this.numerosDeCeroAUno.Add (Math.Round((semilla /(m-1)),3));
                 i++;
-            }     
+            }
+            this.guardarEnArchivo();
         }
 
         #region Getter Setter
